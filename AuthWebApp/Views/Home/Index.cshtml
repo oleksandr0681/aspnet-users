@@ -1,0 +1,87 @@
+﻿@model List<AuthWebApp.Models.SummaryUserModel>
+
+@{
+    ViewBag.Title = "Users";
+}
+
+<div class="row">
+    <div class="col-xs-2 col-sm-2"><h2>Users</h2></div>
+    <div class="col-xs-2 col-xs-offset-8 col-sm-2 col-sm-offset-8"><h3>@ViewBag.NameUser</h3></div>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <div class="col-sm-offset-5 col-sm-3">
+            <button name="action" value="Block" class="btn btn-primary" title="Block">
+                <span class="glyphicon glyphicon-ban-circle"></span>
+            </button>
+            <button name="action" value="Unblock" class="btn btn-primary" title="Unblock">
+                <span class="glyphicon glyphicon-ok-circle"></span>
+            </button>
+            <button name="action" value="Delete" class="btn btn-warning" title="Delete">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>
+                <input type="checkbox" id="allCheckbox" />
+                <label for="allCheckbox">Select all / deselect</label>
+            </th>
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                E-mail
+            </th>
+            <th>
+                Registration date
+            </th>
+            <th>
+                Last login date
+            </th>
+            <th>
+                Status
+            </th>
+        </tr>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <tr>
+                <td>
+                    @Html.CheckBoxFor(model => model[i].IsChecked, new { @class = "userCheckbox" })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model[i].Id, new { htmlAttributes = new { @readonly = "readonly", style = "Width:40pt" } })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model[i].Name, new { htmlAttributes = new { @readonly = "readonly" } })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model[i].Email, new { htmlAttributes = new { @readonly = "readonly" } })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model[i].RegistrationDate, new { htmlAttributes = new { @readonly = "readonly" } })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model[i].LoginDate, new { htmlAttributes = new { @readonly = "readonly" } })
+                </td>
+                <td>
+                    @Html.EditorFor(model => model[i].Status, new { htmlAttributes = new { @readonly = "readonly", style = "Width:60pt" } })
+                </td>
+            </tr>
+        }
+    </table>
+}
+
+@section Scripts {
+    @Scripts.Render("~/Scripts/myScript.js");
+}
