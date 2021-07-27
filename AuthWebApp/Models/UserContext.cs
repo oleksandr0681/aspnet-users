@@ -14,4 +14,12 @@ namespace AuthWebApp.Models
 
         public DbSet<User> Users { get; set; }
     }
+
+    public class Create_DB : CreateDatabaseIfNotExists<UserContext>
+    {
+        protected override void Seed(UserContext context)
+        {
+            base.Seed(context);
+        }
+    }
 }
