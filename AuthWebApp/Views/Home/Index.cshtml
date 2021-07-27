@@ -60,22 +60,22 @@
                     @Html.CheckBoxFor(model => model[i].IsChecked, new { @class = "userCheckbox" })
                 </td>
                 <td>
-                    @Html.EditorFor(model => model[i].Id, new { htmlAttributes = new { @readonly = "readonly", style = "Width:40pt" } })
+                    @Html.EditorFor(model => model[i].Id, new { htmlAttributes = new { @readonly = "readonly", style = "Width:40pt; border-style:none" } })
                 </td>
                 <td>
-                    @Html.EditorFor(model => model[i].Name, new { htmlAttributes = new { @readonly = "readonly" } })
+                    @Html.EditorFor(model => model[i].Name, new { htmlAttributes = new { @readonly = "readonly", style = "border-style:none" } })
                 </td>
                 <td>
-                    @Html.EditorFor(model => model[i].Email, new { htmlAttributes = new { @readonly = "readonly" } })
+                    @Html.EditorFor(model => model[i].Email, new { htmlAttributes = new { @readonly = "readonly", style = "border-style:none" } })
                 </td>
                 <td>
-                    @Html.EditorFor(model => model[i].RegistrationDate, new { htmlAttributes = new { @readonly = "readonly" } })
+                    @Html.EditorFor(model => model[i].RegistrationDate, new { htmlAttributes = new { @readonly = "readonly", style = "border-style:none" } })
                 </td>
                 <td>
-                    @Html.EditorFor(model => model[i].LoginDate, new { htmlAttributes = new { @readonly = "readonly" } })
+                    @Html.EditorFor(model => model[i].LoginDate, new { htmlAttributes = new { @readonly = "readonly", style = "border-style:none" } })
                 </td>
                 <td>
-                    @Html.EditorFor(model => model[i].Status, new { htmlAttributes = new { @readonly = "readonly", style = "Width:60pt" } })
+                    @Html.EditorFor(model => model[i].Status, new { htmlAttributes = new { @readonly = "readonly", style = "Width:60pt; border-style:none" } })
                 </td>
             </tr>
         }
